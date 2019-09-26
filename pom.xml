@@ -21,6 +21,8 @@
 	  <boot-admin.version>2.1.6</boot-admin.version>
 	  <mybatis-plus.version>3.1.2</mybatis-plus.version>
 	  <jmh.versoin>1.21</jmh.versoin>
+	  <mockito.version>2.23.4</mockito.version>
+	  <junit.version>4.12</junit.version>
   </properties>
 
   <dependencyManagement>
@@ -77,10 +79,21 @@
 			<artifactId>jmh-generator-annprocess</artifactId>
 			<version>${jmh.versoin}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
   	</dependencies>
   </dependencyManagement>
 
 	<modules>
 		<module>jmh-study</module>
-	</modules>
+        <module>mockito-study</module>
+    </modules>
  </project>
