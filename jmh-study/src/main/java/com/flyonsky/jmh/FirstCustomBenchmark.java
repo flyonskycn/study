@@ -5,6 +5,10 @@ import org.openjdk.jmh.annotations.*;
 import java.math.BigInteger;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 一个完整的基准测试用例
+ * @author luowengang
+ */
 @BenchmarkMode(Mode.AverageTime)
 @State(Scope.Benchmark)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
