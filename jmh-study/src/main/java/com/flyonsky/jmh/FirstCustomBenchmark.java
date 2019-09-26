@@ -5,7 +5,7 @@ import org.openjdk.jmh.annotations.*;
 import java.math.BigInteger;
 import java.util.concurrent.TimeUnit;
 
-@BenchmarkMode(Mode.All)
+@BenchmarkMode(Mode.AverageTime)
 @State(Scope.Benchmark)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Fork(1)
