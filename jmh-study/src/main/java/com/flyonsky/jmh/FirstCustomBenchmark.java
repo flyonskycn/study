@@ -11,10 +11,10 @@ import java.util.concurrent.TimeUnit;
  */
 @BenchmarkMode(Mode.AverageTime)
 @State(Scope.Benchmark)
-@OutputTimeUnit(TimeUnit.MILLISECONDS)
+@OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Fork(1)
-@Threads(5)
 @Warmup(iterations = 5,time = 1)
+@Measurement(iterations = 5,time = 1)
 public class FirstCustomBenchmark {
 
     @Param({"1", "31", "65", "101", "103"})
