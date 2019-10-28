@@ -23,6 +23,7 @@
 	  <jmh.versoin>1.21</jmh.versoin>
 	  <mockito.version>2.23.4</mockito.version>
 	  <junit.version>4.12</junit.version>
+	  <lombok.version>1.18.10</lombok.version>
   </properties>
 
   <dependencyManagement>
@@ -89,6 +90,12 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
   	</dependencies>
   </dependencyManagement>
 
@@ -96,5 +103,6 @@
 		<module>jmh-study</module>
         <module>mockito-study</module>
 		<module>basic</module>
+		<module>algorithms</module>
     </modules>
  </project>
