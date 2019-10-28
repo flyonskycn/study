@@ -95,5 +95,6 @@
 	<modules>
 		<module>jmh-study</module>
         <module>mockito-study</module>
+		<module>basic</module>
     </modules>
  </project>
