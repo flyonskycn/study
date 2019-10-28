@@ -1,5 +1,7 @@
 # java-study
 java学习，对一些基础知识进行记录。
+## algorithms
+数据结构和算法
 ## basic
 java基础知识测试，巩固基础知识点。
 ## jmh-study
