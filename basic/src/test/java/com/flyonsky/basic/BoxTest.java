@@ -54,4 +54,45 @@ public class BoxTest {
         System.out.println("Integer类的equals()方法进行的是数值的比较 a9 == a10: " + a9.equals(a10));
         Assert.assertTrue(a9.equals(a10));
     }
+
+    @Test
+    public void testLong(){
+        Long a0 = new Long(1);
+        Long a1 = new Long(1);
+        System.out.println("Long 对象作比较 a0 == a1: " + (a0 == a1));
+        Assert.assertFalse(a0 == a1);
+
+        System.out.println("使用longValue得到int值作比较 a0 == a1: " + (a0.longValue() == a1.longValue()));
+        Assert.assertTrue(a0.longValue() == a1.longValue());
+
+        long a2 = 1;
+        System.out.println("将Long自动拆箱 a1 == a2: " + (a1 == a2));
+        Assert.assertTrue(a1 == a2);
+        Assert.assertTrue(a2 == a1);
+
+        // Long对象赋值比较，其实也是内存地址的比较
+        // 自动装箱，如果在-128到127之间，则值存在常量池中
+        Long a3 = 30L;
+        Long a4 = 30L;
+        System.out.println("Long对象赋值比较 a3 == a4: " + (a3 == a4));
+        Assert.assertTrue(a3 == a4);
+
+        // Long对象赋值(超过-128~127区间)比较
+        Long a5 = 128L;
+        Long a6 = 128L;
+        System.out.println("Long对象赋值(超过-128~127区间)比较 a5 == a6: " + (a5 == a6));
+        Assert.assertFalse(a5 == a6);
+
+        // Long对象赋值(超过-128~127区间)比较,调用intValue后再作比较
+        Long a7 = 128L;
+        Long a8 = 128L;
+        System.out.println("Long对象赋值(超过-128~127区间)比较,调用intValue后 a7 == a8: " + (a7.intValue() == a8.intValue()));
+        Assert.assertTrue(a7.intValue() == a8.intValue());
+
+        // 使用Long类的equals()方法进行的是数值的比较
+        Long a9 = 129L;
+        Long a10 = 129L;
+        System.out.println("Long类的equals()方法进行的是数值的比较 a9 == a10: " + a9.equals(a10));
+        Assert.assertTrue(a9.equals(a10));
+    }
 }
