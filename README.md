@@ -1,5 +1,5 @@
 # java-study
-java学习，对一些不太注意的问题进行记录。
+java学习，对一些基础知识进行记录。
 ## basic
 java基础知识测试，巩固基础知识点。
 ## jmh-study
