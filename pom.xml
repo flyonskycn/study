@@ -25,6 +25,7 @@
 	  <junit.version>4.12</junit.version>
 	  <lombok.version>1.18.10</lombok.version>
 	  <archaius.version>0.7.6</archaius.version>
+	  <servo.version>0.12.25</servo.version>
   </properties>
 
   <dependencyManagement>
@@ -101,6 +102,11 @@
 			<groupId>com.netflix.archaius</groupId>
 			<artifactId>archaius-core</artifactId>
 			<version>${archaius.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.netflix.servo</groupId>
+			<artifactId>servo-core</artifactId>
+			<version>${servo.version}</version>
 		</dependency>
   	</dependencies>
   </dependencyManagement>
