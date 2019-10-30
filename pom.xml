@@ -26,6 +26,7 @@
 	  <lombok.version>1.18.10</lombok.version>
 	  <archaius.version>0.7.6</archaius.version>
 	  <servo.version>0.12.25</servo.version>
+	  <configuration.version>1.10</configuration.version>
   </properties>
 
   <dependencyManagement>
@@ -107,6 +108,11 @@
 			<groupId>com.netflix.servo</groupId>
 			<artifactId>servo-core</artifactId>
 			<version>${servo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${configuration.version}</version>
 		</dependency>
   	</dependencies>
   </dependencyManagement>
