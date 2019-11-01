@@ -15,7 +15,7 @@ public class StaticChild extends StaticParent {
             System.out.println("child static variable is null");
         }else{
             System.out.println("child static variable is not null");
-    }
+        }
     }
 
     public static void print(){
