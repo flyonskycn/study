@@ -8,14 +8,14 @@ import java.util.Map;
  * @author luowengang
  */
 public class StaticChild extends StaticParent {
-    private final static Map<String, Object> childMap = new HashMap<>();
+    private final static Map<String, Object> CHILD_MAP = new HashMap<>();
 
     static {
-        if(childMap == null){
+        if(CHILD_MAP == null){
             System.out.println("child static variable is null");
         }else{
             System.out.println("child static variable is not null");
-        }
+    }
     }
 
     public static void print(){
