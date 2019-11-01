@@ -1,4 +1,4 @@
-package com.flyonsky.basic;
+package com.flyonsky;
 
 import org.junit.Assert;
 import org.junit.Test;
