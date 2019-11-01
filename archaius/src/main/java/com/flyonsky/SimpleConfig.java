@@ -5,6 +5,10 @@ import com.netflix.config.DynamicIntProperty;
 import com.netflix.config.DynamicPropertyFactory;
 import com.netflix.config.DynamicStringProperty;
 
+/**
+ * archaius默认使用以及更新一些默认配置
+ * @author luowengang
+ */
 public class SimpleConfig {
 
 	private DynamicStringProperty name = DynamicPropertyFactory.getInstance()

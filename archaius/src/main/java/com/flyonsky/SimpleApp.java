@@ -5,6 +5,10 @@ import java.io.IOException;
 import com.netflix.config.ConfigurationManager;
 import com.netflix.config.jmx.ConfigJMXManager;
 
+/**
+ * archaius与jmx结合的样例
+ * @author luowengang
+ */
 public class SimpleApp extends Thread{
 
     public SimpleApp() {
