@@ -10,6 +10,14 @@ import java.util.Map;
 public class StaticChild extends StaticParent {
     private final static Map<String, Object> childMap = new HashMap<>();
 
+    static {
+        if(childMap == null){
+            System.out.println("child static variable is null");
+        }else{
+            System.out.println("child static variable is not null");
+        }
+    }
+
     public static void print(){
         System.out.println("static method called");
     }
