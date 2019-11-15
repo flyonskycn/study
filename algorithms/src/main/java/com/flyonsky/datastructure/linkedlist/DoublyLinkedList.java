@@ -8,6 +8,8 @@ import lombok.*;
  * @author luowengang
  * @date 2019/11/15
  */
+@Getter
+@Setter
 public class DoublyLinkedList {
 
     /** 头 **/
@@ -21,9 +23,8 @@ public class DoublyLinkedList {
 
 
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
+    @Getter
+    @Setter
     public static class Link{
         /** 前置结点 **/
         private Link previous;
@@ -32,5 +33,9 @@ public class DoublyLinkedList {
         private Link next;
         /** 值 **/
         private int value;
+
+        public Link(int value){
+            this.value = value;
+        }
     }
 }
