@@ -61,7 +61,6 @@ public class DoublyLinkedList {
     public static class Link{
         /** 前置结点 **/
         private Link previous;
-
         /** 后置结点 **/
         private Link next;
         /** 值 **/
