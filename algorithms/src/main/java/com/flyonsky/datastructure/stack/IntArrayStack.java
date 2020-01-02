@@ -1,5 +1,8 @@
 package com.flyonsky.datastructure.stack;
 
+/**
+ * 栈的数组实现
+ */
 public class IntArrayStack {
 
     private int[] values;
@@ -10,6 +13,10 @@ public class IntArrayStack {
         values = new int[10];
     }
 
+    /**
+     * 入栈方法
+     * @param data 数据
+     */
     public void push(int data){
         if(size < values.length - 1){
             values[size++] = data;
@@ -18,6 +25,10 @@ public class IntArrayStack {
         }
     }
 
+    /**
+     * 出栈方法
+     * @return 数据
+     */
     public int pop(){
         if(size > 0){
             return values[size--];
