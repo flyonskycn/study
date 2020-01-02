@@ -2,6 +2,7 @@ package com.flyonsky.datastructure.stack;
 
 /**
  * 栈的数组实现
+ * @author luowengang
  */
 public class IntArrayStack {
 
