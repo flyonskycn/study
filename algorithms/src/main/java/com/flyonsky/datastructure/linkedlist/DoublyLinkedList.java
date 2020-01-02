@@ -24,6 +24,10 @@ public class DoublyLinkedList {
         tail.previous = head;
     }
 
+    /**
+     * 添加数据
+     * @param data 数据值
+     */
     public void insert(int data){
         Link link = new Link(data);
         tail.previous.next = link;
@@ -32,6 +36,9 @@ public class DoublyLinkedList {
         tail.previous = link;
     }
 
+    /**
+     * 删除链表数据
+     */
     public void delete(){
         tail.previous.previous.next = tail;
         tail.previous = tail.previous.previous;
