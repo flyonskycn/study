@@ -54,6 +54,7 @@ public class SinglyLinkedList {
     public void insertNth(int data, int position) {
         checkBounds(position, 0, size);
         Node cur = head;
+        // 找到position前一个节点
         for (int i = 0; i < position; ++i) {
             cur = cur.next;
         }
