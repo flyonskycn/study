@@ -21,7 +21,13 @@ public class DoublyLinkedList {
 
     }
 
+    public void insert(int data){
 
+    }
+
+    public void delete(){
+
+    }
 
     @Getter
     @Setter
