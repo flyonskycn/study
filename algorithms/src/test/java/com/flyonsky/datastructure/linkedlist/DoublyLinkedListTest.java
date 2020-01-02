@@ -1,5 +1,6 @@
 package com.flyonsky.datastructure.linkedlist;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -11,23 +12,48 @@ import org.junit.Test;
 public class DoublyLinkedListTest {
 
     @Test
-    public void testDoublyLinkedList(){
+    public void testDoublyLinkedList1(){
         DoublyLinkedList linkedList = new DoublyLinkedList();
-        linkedList.insert(1);
-        linkedList.insert(5);
-        linkedList.insert(7);
+        linkedList.insertTail(1);
+        linkedList.insertTail(5);
+        linkedList.insertTail(7);
 
-        // ->1->5->7
+        // 1->5->7
         System.out.println(linkedList.toString());
+        Assert.assertEquals("1->5->7", linkedList.toString());
 
-        linkedList.delete();
+        linkedList.deleteTail();
 
         // ->1->5
         System.out.println(linkedList.toString());
+        Assert.assertEquals("1->5", linkedList.toString());
 
-        linkedList.insert(10);
+        linkedList.insertTail(10);
 
         // ->1->5->10
         System.out.println(linkedList.toString());
+        Assert.assertEquals("1->5->10", linkedList.toString());
+    }
+
+    @Test
+    public void testDoublyLinkedList2(){
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+        doublyLinkedList.insertHead(5);
+        doublyLinkedList.insertHead(9);
+        doublyLinkedList.insertHead(20);
+        // 20->9->5
+        System.out.println(doublyLinkedList.toString());
+        Assert.assertEquals("20->9->5", doublyLinkedList.toString());
+
+        doublyLinkedList.deleteHead();
+
+        // 9->5
+        System.out.println(doublyLinkedList.toString());
+        Assert.assertEquals("9->5", doublyLinkedList.toString());
+
+        doublyLinkedList.insertHead(2);
+        // 2->9->5
+        System.out.println(doublyLinkedList.toString());
+        Assert.assertEquals("2->9->5", doublyLinkedList.toString());
     }
 }

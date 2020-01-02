@@ -24,32 +24,54 @@ public class DoublyLinkedList {
         tail.previous = head;
     }
 
+    public void insertHead(int data){
+        Link link = new Link(data);
+        link.next = head.next;
+        link.previous = head;
+        head.next.previous = link;
+        head.next = link;
+    }
+
     /**
      * 添加数据
      * @param data 数据值
      */
-    public void insert(int data){
+    public void insertTail(int data){
         Link link = new Link(data);
-        tail.previous.next = link;
         link.previous = tail.previous;
         link.next = tail;
+        tail.previous.next = link;
         tail.previous = link;
     }
 
     /**
-     * 删除链表数据
+     * 从尾部删除链表数据
      */
-    public void delete(){
+    public void deleteTail(){
         tail.previous.previous.next = tail;
         tail.previous = tail.previous.previous;
+    }
+
+    /**
+     * 从头部删除链表数据
+     */
+    public void deleteHead(){
+        head.next.next.previous = head;
+        head.next = head.next.next;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Link link = head.next;
+        boolean first = true;
         while(link != tail){
-            sb.append("->").append(link.getValue());
+            if(first){
+                sb.append(link.getValue());
+                first = false;
+            }else{
+                sb.append("->").append(link.getValue());
+            }
             link = link.next;
         }
 
