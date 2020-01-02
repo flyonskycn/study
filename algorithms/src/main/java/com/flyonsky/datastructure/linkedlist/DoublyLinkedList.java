@@ -18,15 +18,35 @@ public class DoublyLinkedList {
     private Link tail;
 
     public DoublyLinkedList(){
-
+        head = new Link(0);
+        tail = new Link(0);
+        head.next = tail;
+        tail.previous = head;
     }
 
     public void insert(int data){
-
+        Link link = new Link(data);
+        tail.previous.next = link;
+        link.previous = tail.previous;
+        link.next = tail;
+        tail.previous = link;
     }
 
     public void delete(){
+        tail.previous.previous.next = tail;
+        tail.previous = tail.previous.previous;
+    }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Link link = head.next;
+        while(link != tail){
+            sb.append("->").append(link.getValue());
+            link = link.next;
+        }
+
+        return sb.toString();
     }
 
     @Getter
