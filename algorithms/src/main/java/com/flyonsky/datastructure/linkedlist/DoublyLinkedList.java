@@ -8,8 +8,6 @@ import lombok.*;
  * @author luowengang
  * @date 2019/11/15
  */
-@Getter
-@Setter
 public class DoublyLinkedList {
 
     /** 头 **/
