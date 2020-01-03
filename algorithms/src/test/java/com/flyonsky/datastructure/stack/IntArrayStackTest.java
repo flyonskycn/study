@@ -20,4 +20,18 @@ public class IntArrayStackTest {
             System.out.println(intArrayStack.pop());
         }
     }
+
+    @Test
+    public void testBinary(){
+        IntArrayStack intArrayStack = new IntArrayStack();
+        int num = 10;
+        while(num > 0){
+            intArrayStack.push(num % 2);
+            num = num / 2;
+        }
+
+        while (!intArrayStack.isEmpty()){
+            System.out.print(intArrayStack.pop());
+        }
+    }
 }
