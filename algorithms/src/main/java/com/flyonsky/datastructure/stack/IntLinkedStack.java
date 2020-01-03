@@ -8,9 +8,18 @@ import com.flyonsky.datastructure.linkedlist.SinglyLinkedList;
  * @date 2020/1/2 23:04
  */
 public class IntLinkedStack {
+    /**
+     * 存储栈值的链表
+     */
     private SinglyLinkedList singlyLinkedList;
+    /**
+     * 栈大小
+     */
     private int size;
 
+    /**
+     * 构造函数
+     */
     public IntLinkedStack(){
         singlyLinkedList = new SinglyLinkedList();
         size = 0;
