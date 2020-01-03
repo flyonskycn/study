@@ -66,23 +66,26 @@ public class SinglyLinkedList {
 
     /**
      * 删除头部节点
+     * @return 被删除节点的值
      *
      */
-    public void deleteHead() {
-        deleteNth(0);
+    public int deleteHead() {
+        return deleteNth(0);
     }
 
     /**
      * 删除尾部的元素
+     * @return 被删除节点的值
      */
-    public void delete() {
-        deleteNth(size - 1);
+    public int delete() {
+        return  deleteNth(size - 1);
     }
 
     /**
      * 删除第n个位置的元素
+     * @return 被删除节点的值
      */
-    public void deleteNth(int position) {
+    public int deleteNth(int position) {
         checkBounds(position, 0, size - 1);
         Node cur = head;
         // 找到position前一个节点
@@ -90,10 +93,11 @@ public class SinglyLinkedList {
             cur = cur.next;
         }
 
+        int data = cur.next.value;
         // 删除节点
         cur.next = cur.next.next;
-
         size--;
+        return data;
     }
 
     /**
