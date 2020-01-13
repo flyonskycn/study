@@ -17,5 +17,15 @@ public class OrderlyIntArrayTest {
             orderlyIntArray.add(i);
         }
         System.out.println(orderlyIntArray.toString());
+
+        orderlyIntArray.update(10, 64);
+        System.out.println(orderlyIntArray.toString());
+
+        orderlyIntArray.add(33);
+        orderlyIntArray.add(35);
+        System.out.println(orderlyIntArray.toString());
+
+        orderlyIntArray.remove(33);
+        System.out.println(orderlyIntArray.toString());
     }
 }

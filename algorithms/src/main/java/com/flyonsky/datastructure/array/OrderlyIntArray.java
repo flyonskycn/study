@@ -65,6 +65,7 @@ public class OrderlyIntArray {
             for(int i = index + 1;i < count;i++){
                 values[i-1] = values[i];
             }
+            count--;
             flag = true;
         }
         return flag;
