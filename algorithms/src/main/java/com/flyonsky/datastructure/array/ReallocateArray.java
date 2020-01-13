@@ -74,9 +74,9 @@ public class ReallocateArray<T> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for(int i = 0;i<count;i++){
-            sb.append(values[i].toString()).append("\r\n");
+            sb.append(values[i].toString()).append(",");
         }
-        sb.append("array size : ").append(values.length).append("\r\n");
+        sb.append("\r\narray size : ").append(values.length).append("\r\n");
         return sb.toString();
     }
 }
