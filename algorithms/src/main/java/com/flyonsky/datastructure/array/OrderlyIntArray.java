@@ -24,7 +24,7 @@ public class OrderlyIntArray {
      * @param size 数组大小
      */
     public OrderlyIntArray(int size){
-        if(size > 0){
+        if(size > 16){
             values = new int[size];
         }else{
             values = new int[128];
