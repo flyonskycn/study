@@ -1,5 +1,7 @@
 package com.flyonsky.jmx;
 
+import com.flyonsky.jmx.imp.Hello;
+
 import javax.management.JMException;
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
