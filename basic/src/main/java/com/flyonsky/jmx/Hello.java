@@ -1,4 +1,4 @@
-package com.flyonsky.jmx.imp;
+package com.flyonsky.jmx;
 
 import com.flyonsky.jmx.HelloMBean;
 
@@ -8,7 +8,7 @@ import com.flyonsky.jmx.HelloMBean;
  */
 public class Hello implements HelloMBean {
     @Override
-    public void setHello() {
+    public void setWord() {
         System.out.println("jmx hello");
     }
 }

@@ -8,5 +8,5 @@ public interface HelloMBean {
     /**
      * jmx first
      */
-    void setHello();
+    void setWord();
 }
