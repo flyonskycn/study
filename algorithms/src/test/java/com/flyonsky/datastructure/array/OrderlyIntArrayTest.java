@@ -12,8 +12,8 @@ public class OrderlyIntArrayTest {
 
     @Test
     public void testAdd(){
-        OrderlyIntArray orderlyIntArray = new OrderlyIntArray();
-        for(int i = 32; i>0; i--){
+        OrderlyIntArray orderlyIntArray = new OrderlyIntArray(128);
+        for(int i = 16; i>0; i--){
             orderlyIntArray.add(i);
         }
         System.out.println(orderlyIntArray.toString());

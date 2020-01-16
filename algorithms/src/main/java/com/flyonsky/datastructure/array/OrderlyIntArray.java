@@ -7,6 +7,7 @@ package com.flyonsky.datastructure.array;
  * @date 2020/1/13
  */
 public class OrderlyIntArray {
+    private static final int DEFAULT_SIZE = 16;
     /** 数组对象 **/
     private int[] values;
     /** 记录数 **/
@@ -16,7 +17,7 @@ public class OrderlyIntArray {
      * 构造函数
      */
     public OrderlyIntArray(){
-        values = new int[128];
+        values = new int[DEFAULT_SIZE];
     }
 
     /**
@@ -24,10 +25,10 @@ public class OrderlyIntArray {
      * @param size 数组大小
      */
     public OrderlyIntArray(int size){
-        if(size > 16){
+        if(size > DEFAULT_SIZE){
             values = new int[size];
         }else{
-            values = new int[128];
+            values = new int[DEFAULT_SIZE];
         }
     }
 
@@ -129,7 +130,7 @@ public class OrderlyIntArray {
         for(int i = 0;i<count;i++){
             sb.append(values[i]).append(",");
         }
-        sb.append("\r\n").append("array size : ").append(values.length).append("\r\n");
+        sb.append("\r\n").append("element size : ").append(count).append("\r\n");
         return sb.toString();
     }
 }
