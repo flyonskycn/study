@@ -8,5 +8,11 @@ public interface HelloMXBean {
     /**
      * jmx first
      */
-    void setWord();
+    void sayHi();
+
+    /**
+     * 打印消息变化
+     * @param changeMsg
+     */
+    void printChange(String changeMsg);
 }

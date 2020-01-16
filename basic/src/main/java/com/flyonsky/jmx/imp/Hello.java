@@ -8,7 +8,12 @@ import com.flyonsky.jmx.HelloMXBean;
  */
 public class Hello implements HelloMXBean {
     @Override
-    public void setWord() {
-        System.out.println("jmx hello");
+    public void sayHi() {
+        System.out.println("jmx hello the first");
+    }
+
+    @Override
+    public void printChange(String changeMsg) {
+        System.out.println("data change " + changeMsg);
     }
 }

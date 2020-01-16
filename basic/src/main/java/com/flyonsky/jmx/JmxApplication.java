@@ -1,6 +1,7 @@
 package com.flyonsky.jmx;
 
 import com.flyonsky.jmx.imp.Hello;
+import com.flyonsky.jmx.imp.SecondHello;
 
 import javax.management.JMException;
 import javax.management.MBeanServer;
@@ -16,9 +17,16 @@ public class JmxApplication {
 
     public static void main(String[] args) throws IOException, JMException {
         MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
-        ObjectName objectName = new ObjectName("jmxBean:name=hello");
+        ObjectName objectName = new ObjectName("com.flyonsky:name=firstHello");
 
-        mBeanServer.registerMBean(new Hello(), objectName);
+        HelloMXBean helloMXBean = new Hello();
+        mBeanServer.registerMBean(helloMXBean, objectName);
+
+        ObjectName secondObjectName = new ObjectName("com.flyonsky:name=secondHello");
+
+        SecondHello secondHello = new SecondHello();
+        secondHello.addNotificationListener(new HelloListener(),null,helloMXBean);
+        mBeanServer.registerMBean(secondHello, secondObjectName);
 
         System.in.read();
     }
