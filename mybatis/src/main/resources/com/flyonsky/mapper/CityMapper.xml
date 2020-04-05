@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flyonsky.mapper.CityMapper">
+    <resultMap id="resultMap" type="com.flyonsky.model.City">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="state" jdbcType="VARCHAR" property="state"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+    </resultMap>
+    <insert id="save">
+        insert into city(name,state,country) values(#{name},#{state},#{country})
+    </insert>
+
+    <select id="queryAll" resultMap="resultMap">
+        select * from city
+    </select>
+</mapper>
