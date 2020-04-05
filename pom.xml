@@ -140,5 +140,7 @@
 		<module>basic</module>
 		<module>algorithms</module>
 		<module>archaius</module>
+        <module>sharding</module>
+		<module>mybatis</module>
 	</modules>
  </project>
