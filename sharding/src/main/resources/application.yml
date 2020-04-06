@@ -3,16 +3,32 @@ spring:
     datasource:
       ds0:
         driver-class-name: com.mysql.jdbc.Driver
-        password: flyonsky
-        type: org.apache.commons.dbcp2.BasicDataSource
-        url: jdbc:mysql://localhost:3306/flyonsky0
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:mysql://localhost:3306/flyonsky0?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
         username: root
+        password: flyonsky
+        auto-commit: true
+        connection-test-query: SELECT 1
+        connection-timeout: 30000
+        idle-timeout: 30000
+        max-lifetime: 1800000
+        maximum-pool-size: 15
+        minimum-idle: 5
+        pool-name: HikariCP-ds0
       ds1:
         driver-class-name: com.mysql.jdbc.Driver
-        password: flyonsky
-        type: org.apache.commons.dbcp2.BasicDataSource
-        url: jdbc:mysql://localhost:3306/flyonsky1
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:mysql://localhost:3306/flyonsky1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
         username: root
+        password: flyonsky
+        auto-commit: true
+        connection-test-query: SELECT 1
+        connection-timeout: 30000
+        idle-timeout: 30000
+        max-lifetime: 1800000
+        maximum-pool-size: 15
+        minimum-idle: 5
+        pool-name: HikariCP-ds1
       names: ds0,ds1
     sharding:
       default-database-strategy:
@@ -32,3 +48,7 @@ spring:
             inline:
               algorithm-expression: t_order_item$->{order_id % 2}
               sharding-column: order_id
+        t_user:
+          actual-data-nodes=ds$->{0}.t_user:
+      binding-tables: t_order,t_order_item
+      broadcast-tables: t_user
