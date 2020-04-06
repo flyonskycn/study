@@ -8,3 +8,11 @@ java基础知识测试，巩固基础知识点。
 jmh压测工具学习样例。
 ## mockito-study
 mockito打桩工具学习样例。
+## sharding
+ShardingSphere使用样例。
+## mybatis
+Spring boot中使用mybatis。
+## mybatis-plus
+Spring boot中使用mybatis-plus。
+## archaius
+archaius使用样例。
