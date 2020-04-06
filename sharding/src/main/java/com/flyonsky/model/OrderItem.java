@@ -8,17 +8,15 @@ import java.io.Serializable;
 
 /**
  * @author luowengang
- * @date 2020/4/5 21:17
+ * @date 2020/4/6 10:24
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
+public class OrderItem implements Serializable {
+
     private Long id;
-
-    private String name;
-
-    private Integer age;
-
-    private String email;
+    private Long orderId;
+    private String item;
+    private Long userId;
 }
