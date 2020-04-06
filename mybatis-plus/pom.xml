@@ -11,10 +11,6 @@
 
     <artifactId>mybatis-plus</artifactId>
 
-    <properties>
-        <mybatis-plus.version>3.3.1</mybatis-plus.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -41,7 +37,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis-plus.version}</version>
         </dependency>
     </dependencies>
 </project>

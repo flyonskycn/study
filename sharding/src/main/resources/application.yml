@@ -4,7 +4,8 @@ spring:
       ds0:
         driver-class-name: com.mysql.jdbc.Driver
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/flyonsky0?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        jdbc-url: jdbc:mysql://localhost:3306/flyonsky0?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+#        url: jdbc:mysql://localhost:3306/flyonsky0?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
         username: root
         password: flyonsky
         auto-commit: true
@@ -18,7 +19,8 @@ spring:
       ds1:
         driver-class-name: com.mysql.jdbc.Driver
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/flyonsky1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        jdbc-url: jdbc:mysql://localhost:3306/flyonsky1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+#        url: jdbc:mysql://localhost:3306/flyonsky1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
         username: root
         password: flyonsky
         auto-commit: true
