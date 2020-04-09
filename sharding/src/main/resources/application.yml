@@ -33,6 +33,7 @@ spring:
         pool-name: HikariCP-ds1
       names: ds0,ds1
     sharding:
+      default-data-source-name: ds0
       default-database-strategy:
         inline:
           algorithm-expression: ds$->{user_id % 2}
@@ -53,4 +54,3 @@ spring:
         t_user:
           actual-data-nodes=ds$->{0}.t_user:
       binding-tables: t_order,t_order_item
-      broadcast-tables: t_user
