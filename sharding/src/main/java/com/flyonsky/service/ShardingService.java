@@ -6,6 +6,8 @@ import com.flyonsky.mapper.UserMapper;
 import com.flyonsky.model.Order;
 import com.flyonsky.model.OrderItem;
 import com.flyonsky.model.User;
+import org.apache.shardingsphere.transaction.annotation.ShardingTransactionType;
+import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +19,7 @@ import org.springframework.util.Assert;
  */
 @Service
 @Transactional
+@ShardingTransactionType(TransactionType.XA)
 public class ShardingService {
     @Autowired
     private UserMapper userMapper;
