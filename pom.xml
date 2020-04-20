@@ -28,6 +28,7 @@
 	  <servo.version>0.12.25</servo.version>
 	  <configuration.version>1.10</configuration.version>
 	  <mysql.version>8.0.16</mysql.version>
+	  <rxjava.version>3.0.2</rxjava.version>
   </properties>
 
   <dependencyManagement>
@@ -120,6 +121,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.reactivex.rxjava3</groupId>
+			<artifactId>rxjava</artifactId>
+			<version>${rxjava.version}</version>
+		</dependency>
   	</dependencies>
   </dependencyManagement>
 	<build>
@@ -149,5 +155,6 @@
         <module>sharding</module>
 		<module>mybatis</module>
 		<module>mybatis-plus</module>
-	</modules>
+        <module>reactivex</module>
+    </modules>
  </project>
