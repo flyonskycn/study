@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: sharding
   shardingsphere:
     datasource:
       ds0:
@@ -15,7 +17,7 @@ spring:
         max-lifetime: 1800000
         maximum-pool-size: 15
         minimum-idle: 5
-        pool-name: HikariCP-ds0
+        pool-name: HikariCP-${spring.application.name}-ds0
       ds1:
         driver-class-name: com.mysql.jdbc.Driver
         type: com.zaxxer.hikari.HikariDataSource
@@ -30,7 +32,7 @@ spring:
         max-lifetime: 1800000
         maximum-pool-size: 15
         minimum-idle: 5
-        pool-name: HikariCP-ds1
+        pool-name: HikariCP-${spring.application.name}-ds1
       names: ds0,ds1
     sharding:
       default-data-source-name: ds0
@@ -54,3 +56,10 @@ spring:
         t_user:
           actual-data-nodes=ds$->{0}.t_user:
       binding-tables: t_order,t_order_item
+logging:
+  level: info
+    org:
+      mybatis: ERROR
+      springframework: DEBUG
+  file: /app/logs/${spring.application.name}.log
+
