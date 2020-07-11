@@ -156,5 +156,6 @@
 		<module>mybatis</module>
 		<module>mybatis-plus</module>
         <module>reactivex</module>
+        <module>drools</module>
     </modules>
  </project>
