@@ -1,0 +1,10 @@
+package com.flyonsky.account;
+
+import com.flyonsky.model.Account;
+
+rule "account check"
+    when
+        $account : Account()
+    then
+        System.out.println($account.getFlowDetailList());
+end

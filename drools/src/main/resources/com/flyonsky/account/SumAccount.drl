@@ -1,0 +1,21 @@
+
+package com.flyonsky.account;
+
+import com.flyonsky.model.Account;
+import com.flyonsky.model.FlowDetail;
+import com.flyonsky.util.MathUtils;
+
+rule "amount check"
+    when
+        $total:Double() from accumulate(
+            $flowDetail:FlowDetail(),
+            init(Double sumAmount = 0.0D),
+            action(
+                sumAmount = MathUtils.add(sumAmount,$flowDetail.getCurrentAmount());
+            ),
+            result(sumAmount)
+        )
+        $account:Account(amount == $total)
+    then
+        System.out.println("amount not equals " + $total);
+end

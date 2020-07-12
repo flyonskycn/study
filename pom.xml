@@ -29,6 +29,7 @@
 	  <configuration.version>1.10</configuration.version>
 	  <mysql.version>8.0.16</mysql.version>
 	  <rxjava.version>3.0.2</rxjava.version>
+	  <drools.version>7.40.0.Final</drools.version>
   </properties>
 
   <dependencyManagement>
@@ -126,6 +127,31 @@
 			<artifactId>rxjava</artifactId>
 			<version>${rxjava.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-api</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+		<dependency>
+		  	<groupId>org.drools</groupId>
+		  	<artifactId>drools-core</artifactId>
+		  	<version>${drools.version}</version>
+	  	</dependency>
+	  	<dependency>
+		  	<groupId>org.drools</groupId>
+		  	<artifactId>drools-compiler</artifactId>
+		  	<version>${drools.version}</version>
+	  	</dependency>
+	  	<dependency>
+		  	<groupId>org.drools</groupId>
+		  	<artifactId>drools-decisiontables</artifactId>
+		  	<version>${drools.version}</version>
+	  	</dependency>
+	  	<dependency>
+		  	<groupId>org.drools</groupId>
+		  	<artifactId>drools-templates</artifactId>
+		  	<version>${drools.version}</version>
+	  	</dependency>
   	</dependencies>
   </dependencyManagement>
 	<build>
