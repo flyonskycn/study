@@ -7,15 +7,16 @@ import com.flyonsky.util.MathUtils;
 
 rule "amount check"
     when
+        $account:Account($flowDetails:flowDetailList)
         $total:Double() from accumulate(
-            $flowDetail:FlowDetail(),
+            $flowDetail: FlowDetail() from $flowDetails,
             init(Double sumAmount = 0.0D),
             action(
                 sumAmount = MathUtils.add(sumAmount,$flowDetail.getCurrentAmount());
             ),
             result(sumAmount)
         )
-        $account:Account(amount == $total)
+//        $account:Account(amount == $total)
     then
-        System.out.println("amount not equals " + $total);
+        System.out.println("detail amount is: " + $total + " amount:" + $account.getAmount());
 end

@@ -12,7 +12,7 @@ import java.util.Objects;
 public class MathUtils {
 
     public static Double add(Double d1,Double d2,int precision){
-        MathContext mathContext = new MathContext(2, RoundingMode.HALF_UP);
+        MathContext mathContext = new MathContext(precision, RoundingMode.HALF_UP);
         BigDecimal bd1 = null;
 
         BigDecimal bd2 = null;
@@ -28,7 +28,7 @@ public class MathUtils {
             bd2 = new BigDecimal(d2);
         }
 
-        return bd2.add(bd2, mathContext).doubleValue();
+        return bd1.add(bd2, mathContext).doubleValue();
     }
 
     public static Double add(Double d1,Double d2){

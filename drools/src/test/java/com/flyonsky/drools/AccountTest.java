@@ -30,16 +30,16 @@ public class AccountTest {
         List<FlowDetail> flowDetailList = new ArrayList<>();
 
         FlowDetail flowDetail = FlowDetail.builder().accountId(1l).accountName("accountTest")
-                .currentAmount(40D).currentTime(new Date(System.currentTimeMillis())).build();
+                .currentAmount(50D).currentTime(new Date(System.currentTimeMillis())).build();
         flowDetailList.add(flowDetail);
 
-//        flowDetail = FlowDetail.builder().accountId(1l).accountName("accountTest")
-//                .currentAmount(49D).currentTime(new Date(System.currentTimeMillis())).build();
-//        flowDetailList.add(flowDetail);
+        flowDetail = FlowDetail.builder().accountId(1l).accountName("accountTest")
+                .currentAmount(49D).currentTime(new Date(System.currentTimeMillis())).build();
+        flowDetailList.add(flowDetail);
 
         account.setFlowDetailList(flowDetailList);
 
-//        statelessKieSession.execute(account);
-        statelessKieSession.execute(flowDetailList);
+        statelessKieSession.execute(account);
+//        statelessKieSession.execute(flowDetailList);
     }
 }
