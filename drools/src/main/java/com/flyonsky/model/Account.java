@@ -22,4 +22,6 @@ public class Account implements Serializable {
     private Double amount;
 
     List<FlowDetail> flowDetailList;
+
+    private boolean isValid;
 }

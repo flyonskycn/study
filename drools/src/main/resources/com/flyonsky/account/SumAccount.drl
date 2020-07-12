@@ -16,7 +16,8 @@ rule "amount check"
             ),
             result(sumAmount)
         )
-//        $account:Account(amount == $total)
+        $account2:Account(amount == $total)
     then
         System.out.println("detail amount is: " + $total + " amount:" + $account.getAmount());
+        $account.setValid(true);
 end
