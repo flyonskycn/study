@@ -1,11 +1,9 @@
 package com.flyonsky.consistenthash;
 
-import com.flyonsky.consistenthash.ConsistentHashRouter;
-import com.flyonsky.consistenthash.Node;
 import java.util.Arrays;
 
 /**
- * a sample usage for routing a request to services based on requester ip
+ * 测试服务器节点
  */
 public class MyServiceNode implements Node{
     private final String idc;

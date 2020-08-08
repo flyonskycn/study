@@ -1,30 +1,42 @@
 package com.flyonsky.consistenthash;
 
+import org.junit.Test;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * a test sample to test the hash function routing distribution, by default ConsistentHashRouter will use a inner MD5 hash algorithm
+ * ConsistentHashRouter测试类
  */
-public class DistributionTestSample{
+public class ConsistentHashRouterTest {
+
+    @Test
+    public void testHash(){
+        MyServiceNode node1 = new MyServiceNode("BeiJingDC1", "10.8.1.11", 8080);
+        MyServiceNode node2 = new MyServiceNode("ShangHaiDC1", "10.8.3.99", 8080);
+        MyServiceNode node3 = new MyServiceNode("ShengZhenDC1", "10.9.11.105", 8080);
+        MyServiceNode node4 = new MyServiceNode("ChengDuDC1", "10.10.9.210", 8080);
+        MyServiceNode node5 = new MyServiceNode("XinJiangDC1", "10.10.5.210", 8080);
+
+        /** 初始物理节点和虚拟节点 **/
+        ConsistentHashRouter<MyServiceNode> consistentHashRouter = new ConsistentHashRouter<>(Arrays.asList(node1,node2,node3,node4,node5),20);//20 virtual node
+
+        System.out.println(consistentHashRouter.routeDistribute());
+    }
 
     public static void main(String[] args) {
-        //initialize 4 service node
-        MyServiceNode node1 = new MyServiceNode("IDC1", "10.8.1.11", 8080);
-        MyServiceNode node2 = new MyServiceNode("IDC1", "10.8.3.99", 8080);
-        MyServiceNode node3 = new MyServiceNode("IDC1", "10.9.11.105", 8080);
-        MyServiceNode node4 = new MyServiceNode("IDC1", "10.10.9.210", 8080);
+        MyServiceNode node1 = new MyServiceNode("BeiJingDC1", "10.8.1.11", 8080);
+        MyServiceNode node2 = new MyServiceNode("ShangHaiDC1", "10.8.3.99", 8080);
+        MyServiceNode node3 = new MyServiceNode("ShengZhenDC1", "10.9.11.105", 8080);
+        MyServiceNode node4 = new MyServiceNode("ChengDuDC1", "10.10.9.210", 8080);
 
-        //hash them to hash ring.
-        // 1. By default a MD5 hash function will be used, you can modify a little if you want to test your own hash funtion
-        // 2. Another factor which is will influence distribution is the numbers of virtual nodes, you can change this factor , below, we use 20 virtual nodes for each physical node.
+        /** 初始物理节点和虚拟节点 **/
         ConsistentHashRouter<MyServiceNode> consistentHashRouter = new ConsistentHashRouter<>(Arrays.asList(node1,node2,node3,node4),20);//20 virtual node
 
         List<String> requestIps = new ArrayList<>();
         for(int i = 0; i < 100000; i++) {
             requestIps.add(getRandomIp());
         }
-
 
         System.out.println("==========output distribution result==========");
         System.out.println(goRoute(consistentHashRouter, requestIps.toArray(new String[requestIps.size()])).toString());

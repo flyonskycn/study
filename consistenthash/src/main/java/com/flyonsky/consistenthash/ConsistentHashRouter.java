@@ -1,11 +1,13 @@
 package com.flyonsky.consistenthash;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * 一致性hash路由实现类
@@ -14,6 +16,9 @@ import java.util.TreeMap;
  * @param <T>
  */
 public class ConsistentHashRouter<T extends Node> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConsistentHashRouter.class);
+    private static final Long UNSIGNED_MAX_INTEGER = 4294967295L;
+    private static final BigDecimal UNSIGNED_MAX_INTEGER_TO_DECIMAL = new BigDecimal(UNSIGNED_MAX_INTEGER);
     /** hash环 **/
     private final SortedMap<Long, VirtualNode<T>> ring = new TreeMap<>();
     /** hash函数 **/
@@ -25,7 +30,7 @@ public class ConsistentHashRouter<T extends Node> {
      * @param vNodeCount 每个物理节点的虚拟节点数
      */
     public ConsistentHashRouter(Collection<T> pNodes, int vNodeCount) {
-        this(pNodes,vNodeCount, new MD5Hash());
+        this(pNodes,vNodeCount, new Md5Hash());
     }
 
     /**
@@ -80,7 +85,7 @@ public class ConsistentHashRouter<T extends Node> {
     /**
      * 根据对象key找到对应的物理节点
      * @param objectKey 对像key
-     * @return
+     * @return 物理节点
      */
     public T routeNode(String objectKey) {
         if (ring.isEmpty()) {
@@ -108,15 +113,56 @@ public class ConsistentHashRouter<T extends Node> {
     }
 
     /**
+     * 一致性hash分布情况统计
+     * @return
+     */
+    public String routeDistribute(){
+        Map<String, Long> physicalMap = new HashMap<>();
+        Map<String, BigDecimal> physicalRateMap = new HashMap<>();
+
+        Long previousLong = 0L;
+        if(!ring.isEmpty()){
+            VirtualNode<T> virtualNode = null;
+            VirtualNode<T> firstNote = null;
+            Long sumArea = 0L;
+            for(Map.Entry<Long,VirtualNode<T>> entry : ring.entrySet()){
+                virtualNode = entry.getValue();
+                if(physicalMap.containsKey(virtualNode.getPhysicalNode().getKey())){
+                    sumArea = physicalMap.get(virtualNode.getPhysicalNode().getKey());
+                    sumArea += (entry.getKey() - previousLong);
+                    physicalMap.put(virtualNode.getPhysicalNode().getKey(), sumArea);
+                }else{
+                    sumArea = entry.getKey() - previousLong;
+                    physicalMap.put(virtualNode.getPhysicalNode().getKey(), sumArea);
+                }
+                previousLong = entry.getKey();
+            }
+
+            firstNote = ring.get(ring.firstKey());
+
+            sumArea = physicalMap.get(firstNote.getPhysicalNode().getKey());
+            sumArea += (UNSIGNED_MAX_INTEGER - previousLong);
+            physicalMap.put(firstNote.getPhysicalNode().getKey(), sumArea);
+        }
+
+        for(Map.Entry<String,Long> entry : physicalMap.entrySet()){
+            BigDecimal bigDecimal = new BigDecimal(entry.getValue());
+            physicalRateMap.put(entry.getKey(), bigDecimal.divide(UNSIGNED_MAX_INTEGER_TO_DECIMAL, 4, RoundingMode.HALF_UP));
+        }
+        return physicalRateMap.toString();
+    }
+
+    /**
      * 默认的MD5 hash实现
      */
-    private static class MD5Hash implements HashFunction {
+    private static class Md5Hash implements HashFunction {
         MessageDigest instance;
 
-        public MD5Hash() {
+        public Md5Hash() {
             try {
                 instance = MessageDigest.getInstance("MD5");
             } catch (NoSuchAlgorithmException e) {
+                LOGGER.error("MessageDigest error ", e);
             }
         }
 
