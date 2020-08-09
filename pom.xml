@@ -183,6 +183,6 @@
 		<module>mybatis-plus</module>
         <module>reactivex</module>
         <module>drools</module>
-        <module>consistenthash</module>
+        <module>distributed-base</module>
     </modules>
  </project>
