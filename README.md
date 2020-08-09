@@ -16,3 +16,5 @@ Spring boot中使用mybatis。
 Spring boot中使用mybatis-plus。
 ## archaius
 archaius使用样例。
+## distributed-base
+分布式系统的基础知识应用
