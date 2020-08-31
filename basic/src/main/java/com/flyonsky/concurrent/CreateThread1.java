@@ -7,10 +7,21 @@ import java.text.MessageFormat;
  * @date 2020/8/31 22:44
  */
 public class CreateThread1 {
+//    public static void main(String[] args){
+//        for(int i =0;i <10;i ++){
+//            new UserThread(i).start();
+//        }
+//        System. out.println("main thread is run success.");
+//    }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
+        Thread[] ts = new Thread[10];
         for(int i =0;i <10;i ++){
-            new UserThread(i).start();
+            ts[ i] = new UserThread( i);
+            ts[ i].start();
+        }
+        for(Thread t : ts ){
+            t.join();
         }
         System. out.println("main thread is run success.");
     }
@@ -27,11 +38,9 @@ public class CreateThread1 {
             try {
                 sleep(10L);
             } catch (InterruptedException e ) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             System. out.println(MessageFormat.format( "the {0} thread is run success.", this. num));
         }
-
     }
 }
