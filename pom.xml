@@ -184,5 +184,6 @@
         <module>reactivex</module>
         <module>drools</module>
         <module>distributed-base</module>
+        <module>guava</module>
     </modules>
  </project>
