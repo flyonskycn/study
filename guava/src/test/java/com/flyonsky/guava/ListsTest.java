@@ -10,7 +10,7 @@ import java.util.List;
  * @author luowengang
  * @date 2020/9/24 23:01
  */
-public class TestLists {
+public class ListsTest {
 
     @Test
     public void testLists(){
