@@ -1,4 +1,4 @@
-package com.flyonskyspring.factories.concurrent;
+package com.flyonsky.concurrent;
 
 import java.util.Random;
 import java.util.concurrent.*;
