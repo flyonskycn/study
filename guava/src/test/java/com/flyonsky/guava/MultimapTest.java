@@ -55,5 +55,9 @@ public class MultimapTest extends JsonBaseTest {
         stringSetMultimap.put("a", "e");
 
         printString(stringSetMultimap.asMap());
+        printString(stringSetMultimap.keys());
+        printString(stringSetMultimap.keys().entrySet());
+        printString(stringSetMultimap.keySet());
+        printString(stringSetMultimap.values());
     }
 }
