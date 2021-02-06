@@ -1,7 +1,9 @@
 package com.flyonsky.guava;
 
+import com.flyonsky.JsonBaseTest;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.MultimapBuilder;
+import com.google.common.collect.SetMultimap;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +14,7 @@ import java.util.Map;
  * @author luowengang
  * @date 2020/9/24 20:32
  */
-public class MultimapTest {
+public class MultimapTest extends JsonBaseTest {
 
     @Test
     public void testMultimap(){
@@ -41,5 +43,17 @@ public class MultimapTest {
         for(String key : listMultimap.keySet()){
             System.out.println(listMultimap.get(key));
         }
+    }
+
+    @Test
+    public void testSetMultimap(){
+        SetMultimap<String, String> stringSetMultimap = MultimapBuilder.hashKeys().hashSetValues().build();
+        stringSetMultimap.put("a", "a");
+        stringSetMultimap.put("b", "b");
+        stringSetMultimap.put("c", "c");
+        stringSetMultimap.put("d", "d");
+        stringSetMultimap.put("a", "e");
+
+        printString(stringSetMultimap.asMap());
     }
 }
