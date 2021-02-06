@@ -1,5 +1,6 @@
 package com.flyonsky.guava;
 
+import com.flyonsky.JsonBaseTest;
 import com.google.common.collect.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +9,7 @@ import org.junit.Test;
  * @author luowengang
  * @date 2020/9/23 21:47
  */
-public class MultisetTest {
+public class MultisetTest extends JsonBaseTest {
 
     @Test
     public void testMultiset(){
@@ -22,6 +23,8 @@ public class MultisetTest {
         Assert.assertEquals(2,multiset.count("a"));
         System.out.println(multiset.size());
         Assert.assertEquals(3,multiset.size());
+        printString(multiset.entrySet());
+        printString(multiset.elementSet());
     }
 
     @Test
@@ -36,6 +39,7 @@ public class MultisetTest {
         sortedMultiset.add("g",7);
         sortedMultiset.add("h",8);
 
+        printString(sortedMultiset);
         System.out.println(sortedMultiset.subMultiset("a", BoundType.OPEN,"f",BoundType.CLOSED));
     }
 }
