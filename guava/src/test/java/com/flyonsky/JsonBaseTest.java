@@ -49,8 +49,12 @@ public abstract class JsonBaseTest {
     protected void printString(Object obj){
         ObjectMapper mapper = new ObjectMapper();
         try{
-            String str = mapper.writeValueAsString(obj);
-            LOG.debug(str);
+            if(obj instanceof String){
+                LOG.debug(String.valueOf(obj));
+            }else{
+                String str = mapper.writeValueAsString(obj);
+                LOG.debug(str);
+            }
         }catch (Exception ex){
             LOG.debug(ex.getMessage());
         }

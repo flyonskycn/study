@@ -25,23 +25,22 @@ public class MultimapTest extends JsonBaseTest {
         listMultimap.put("a", "d");
         listMultimap.put("a", "e");
 
-        System.out.println(listMultimap.toString());
-        System.out.println(listMultimap.size());
+        printString(listMultimap.toString());
+        printString(listMultimap.size());
         Assert.assertEquals(5,listMultimap.size());
 
         List<String> list = listMultimap.get("a");
         list.add("f");
 
-        System.out.println(listMultimap.toString());
+        printString(listMultimap.toString());
         Assert.assertEquals(6,listMultimap.size());
 
         for(Map.Entry<String, String> entry: listMultimap.entries()){
-            System.out.println(entry.getKey() + ":" + entry.getValue());
+            printString(entry.getKey() + ":" + entry.getValue());
         }
 
-
         for(String key : listMultimap.keySet()){
-            System.out.println(listMultimap.get(key));
+            printString(listMultimap.get(key));
         }
     }
 
@@ -53,7 +52,9 @@ public class MultimapTest extends JsonBaseTest {
         stringSetMultimap.put("c", "c");
         stringSetMultimap.put("d", "d");
         stringSetMultimap.put("a", "e");
+        stringSetMultimap.put("a", "e");
 
+        printString(stringSetMultimap.size());
         printString(stringSetMultimap.asMap());
         printString(stringSetMultimap.keys());
         printString(stringSetMultimap.keys().entrySet());
