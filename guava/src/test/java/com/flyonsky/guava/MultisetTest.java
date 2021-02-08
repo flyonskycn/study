@@ -18,10 +18,10 @@ public class MultisetTest extends JsonBaseTest {
         multiset.add("a");
         multiset.add("b");
 
-        System.out.println(multiset.toString());
-        System.out.println(multiset.count("a"));
+        printString(multiset);
+        printString(multiset.count("a"));
         Assert.assertEquals(2,multiset.count("a"));
-        System.out.println(multiset.size());
+        printString(multiset.size());
         Assert.assertEquals(3,multiset.size());
         printString(multiset.entrySet());
         printString(multiset.elementSet());
