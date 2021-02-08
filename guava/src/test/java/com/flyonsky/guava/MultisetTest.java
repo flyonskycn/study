@@ -24,7 +24,9 @@ public class MultisetTest extends JsonBaseTest {
         printString(multiset.size());
         Assert.assertEquals(3,multiset.size());
         printString(multiset.entrySet());
+        Assert.assertEquals(2,multiset.entrySet().size());
         printString(multiset.elementSet());
+        Assert.assertEquals(2,multiset.elementSet().size());
     }
 
     @Test
