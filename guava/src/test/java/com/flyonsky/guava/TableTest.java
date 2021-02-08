@@ -1,5 +1,6 @@
 package com.flyonsky.guava;
 
+import com.flyonsky.JsonBaseTest;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import org.junit.Test;
@@ -8,7 +9,7 @@ import org.junit.Test;
  * @author luowengang
  * @date 2020/9/24 21:37
  */
-public class TableTest {
+public class TableTest extends JsonBaseTest {
 
     @Test
     public void testTable(){
@@ -18,8 +19,8 @@ public class TableTest {
         table.put("a", "c", 1000);
         table.put("c", "b", 5000);
 
-        System.out.println(table.row("a"));
+        printString(table.row("a"));
 
-        System.out.println(table.column("b"));
+        printString(table.column("b"));
     }
 }
