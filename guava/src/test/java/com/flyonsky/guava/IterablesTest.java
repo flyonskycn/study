@@ -31,5 +31,6 @@ public class IterablesTest extends JsonBaseTest {
         printString(concatenated.toString());
 
         printString(Iterables.partition(concatenated,2).toString());
+        printString(Iterables.getLast(concatenated));
     }
 }
