@@ -17,7 +17,7 @@ public class ClassToInstanceMapTest extends JsonBaseTest {
     public void testClassToInstanceMap(){
         ClassToInstanceMap<Number> classToInstanceMap = MutableClassToInstanceMap.create();
         classToInstanceMap.putInstance(Integer.class, 10);
-        classToInstanceMap.putInstance(Long.class, 100L);
+        classToInstanceMap.putInstance(Double.class, 100D);
         classToInstanceMap.putInstance(Long.class, 10000L);
 
         printString(classToInstanceMap);
