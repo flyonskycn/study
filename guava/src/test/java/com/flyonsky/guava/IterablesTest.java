@@ -29,5 +29,7 @@ public class IterablesTest extends JsonBaseTest {
                 Ints.asList(1, 2, 3),
                 Ints.asList(4, 5, 6));
         printString(concatenated.toString());
+
+        printString(Iterables.partition(concatenated,2).toString());
     }
 }
