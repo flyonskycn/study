@@ -34,6 +34,9 @@ public class RangeMapTest extends JsonBaseTest {
 
         printString(rangeMap.get(15));
 
+        rangeMap.put(Range.closed(15,22),"foo");
+        printString(rangeMap.toString());
+
         Assert.assertEquals("foo",rangeMap.get(15));
     }
 }

@@ -1,10 +1,7 @@
 package com.flyonsky.guava;
 
 import com.flyonsky.JsonBaseTest;
-import com.google.common.collect.DiscreteDomain;
-import com.google.common.collect.Range;
-import com.google.common.collect.RangeSet;
-import com.google.common.collect.TreeRangeSet;
+import com.google.common.collect.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +17,13 @@ public class RangeSetTest extends JsonBaseTest {
         // {[1, 10]}
         rangeSet.add(Range.closed(1, 10));
         printString(rangeSet.toString());
+        printString(rangeSet.contains(5));
         printString(rangeSet.complement().toString());
+
+        ImmutableRangeSet<Integer> integerImmutableRangeSet = ImmutableRangeSet.copyOf(rangeSet);
+        ImmutableSortedSet<Integer> immutableSortedSet = integerImmutableRangeSet.asSet(DiscreteDomain.integers());
+        printString(immutableSortedSet);
+
         printString(rangeSet.subRangeSet(Range.closed(5,15)).toString());
 
         // disconnected range: {[1, 10], [11, 15)}
@@ -39,6 +42,9 @@ public class RangeSetTest extends JsonBaseTest {
         rangeSet.remove(Range.open(5, 10));
         printString(rangeSet.toString());
 
+        printString(rangeSet.encloses(Range.closed(15,20)));
+
         printString("span():" + rangeSet.span().toString());
+
     }
 }
