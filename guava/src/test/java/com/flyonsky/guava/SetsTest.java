@@ -1,5 +1,6 @@
 package com.flyonsky.guava;
 
+import com.flyonsky.JsonBaseTest;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import java.util.Set;
  * @author luowengang
  * @date 2020/9/24 23:19
  */
-public class SetsTest {
+public class SetsTest extends JsonBaseTest {
 
     @Test
     public void testSets(){
@@ -20,7 +21,19 @@ public class SetsTest {
 
         // contains "two", "three", "seven"
         Sets.SetView<String> intersection = Sets.intersection(primes, wordsWithPrimeLength);
-        System.out.println(intersection);
+        printString(intersection);
+
+        // contains "one","two","three","five","six","seven","eight"
+        Sets.SetView<String> union = Sets.union(primes, wordsWithPrimeLength);
+        printString(union);
+
+        // contains "one","six","eight"
+        Sets.SetView<String> difference = Sets.difference(wordsWithPrimeLength, primes);
+        printString(difference);
+
+        // "one","six","eight","five"
+        Sets.SetView<String> symmetricDifference = Sets.symmetricDifference(wordsWithPrimeLength, primes);
+        printString(symmetricDifference);
 
         Set<String> animals = ImmutableSet.of("gerbil", "hamster");
         Set<String> fruits = ImmutableSet.of("apple", "orange", "banana");
@@ -29,11 +42,11 @@ public class SetsTest {
         // {{"gerbil", "apple"}, {"gerbil", "orange"}, {"gerbil", "banana"},
         //  {"hamster", "apple"}, {"hamster", "orange"}, {"hamster", "banana"}}
 
-        System.out.println(product);
+        printString(product);
 
         Set<Set<String>> animalSets = Sets.powerSet(animals);
         // {{}, {"gerbil"}, {"hamster"}, {"gerbil", "hamster"}}
 
-        System.out.println(animalSets);
+        printString(animalSets);
     }
 }
