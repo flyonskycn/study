@@ -4,6 +4,7 @@ import com.flyonsky.JsonBaseTest;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.primitives.Ints;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -29,6 +30,9 @@ public class IterablesTest extends JsonBaseTest {
                 Ints.asList(1, 2, 3),
                 Ints.asList(4, 5, 6));
         printString(concatenated.toString());
+
+        printString(Iterables.contains(concatenated, 6));
+        printString(Iterables.size(concatenated));
 
         printString(Iterables.partition(concatenated,2).toString());
         printString(Iterables.getLast(concatenated));
