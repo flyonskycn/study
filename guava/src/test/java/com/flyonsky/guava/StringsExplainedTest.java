@@ -5,6 +5,7 @@ import com.google.common.base.CaseFormat;
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -42,5 +43,6 @@ public class StringsExplainedTest extends JsonBaseTest {
         // returns "constantName"
         String name = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "CONSTANT_NAME");
         printString(name);
+        Assert.assertEquals("constantName",name);
     }
 }
