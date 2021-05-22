@@ -12,8 +12,8 @@ public class MaxProfit {
 //        int[] prices = {1, 2, 3, 4, 5};
 //        int[] prices = {7, 6, 4, 3, 1};
         int[] prices = {2, 4, 1};
-        int maxProfix = maxProfix(prices);
-        System.out.println(maxProfix);
+        int maxProfit = maxProfit(prices);
+        System.out.println(maxProfit);
     }
 
     /**
@@ -21,20 +21,18 @@ public class MaxProfit {
      * @param prices
      * @return
      */
-    public static int maxProfix(int[] prices){
-        int profix = 0;
+    public static int maxProfit(int[] prices){
+        int profit = 0;
 
         if(prices != null && prices.length >= 2){
             int minPrice = prices[0];
             int maxPrice = prices[0];
             for(int i=1; i < prices.length; i++){
-                if(prices[i] >= maxPrice){
-                    maxPrice = prices[i];
-                } else {
-                    profix += maxPrice - minPrice;
+                if (prices[i] < maxPrice) {
+                    profit += maxPrice - minPrice;
                     minPrice = prices[i];
-                    maxPrice = prices[i];
                 }
+                maxPrice = prices[i];
                 if(prices[i] < minPrice){
                     minPrice = prices[i];
                     maxPrice = prices[i];
@@ -42,9 +40,9 @@ public class MaxProfit {
                 }
             }
             if(minPrice != maxPrice){
-                profix += maxPrice - minPrice;
+                profit += maxPrice - minPrice;
             }
         }
-        return profix;
+        return profit;
     }
 }
