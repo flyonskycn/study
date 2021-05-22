@@ -25,7 +25,7 @@ public class DeleteRepeatNumber {
                 }
             }
         }
-        return len + 1;
+        return ++len;
     }
 
     public static void main(String[] args) {
