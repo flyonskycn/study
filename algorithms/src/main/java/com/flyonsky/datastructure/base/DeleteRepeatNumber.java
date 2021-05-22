@@ -17,12 +17,14 @@ public class DeleteRepeatNumber {
      * @return
      */
     public static int delteRepeat(int[] nums){
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+
         int len = 0;
-        if(Objects.nonNull(nums)){
-            for(int i=1;i<nums.length;i++){
-                if(nums[len] != nums[i]){
-                    nums[++len] = nums[i];
-                }
+        for(int i=1; i<nums.length; i++){
+            if(nums[len] != nums[i]){
+                nums[++len] = nums[i];
             }
         }
         return ++len;
