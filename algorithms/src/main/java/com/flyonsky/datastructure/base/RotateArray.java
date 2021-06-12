@@ -7,9 +7,9 @@ package com.flyonsky.datastructure.base;
 public class RotateArray {
 
     public static void main(String[] args){
-        int[] nums = {1,2,3,4,5,6,7};
-//        int[] nums = {1,2};
-        int k = 3;
+//        int[] nums = {1,2,3,4,5,6,7};
+        int[] nums = {1,2};
+        int k = 2;
 
 //        int[] nums = {-1,-100,3,99};
 //        int k = 2;
@@ -56,26 +56,28 @@ public class RotateArray {
      *
      * 输入：nums = [-1,-100,3,99], k = 2
      * 输出：[3,99,-1,-100]
-     * 时间复杂度O(n)，空间复杂度O(1)
+     * 时间复杂度O(k*n)，空间复杂度O(1)
      * @param nums
      * @param k
      * @return
      */
     public static void rotateInPlace(int[] nums,int k){
         if(nums != null
-                && k > 0){
+                && nums.length > 1){
             k = k % nums.length;
-            if(k == 1){
-                int tmp = nums[nums.length - 1];
-                for(int i = nums.length-2; i>=0; i--){
-                    nums[i + 1] = nums[i];
-                    if(i == 0){
-                        nums[i] = tmp;
+            if(k > 0){
+                if(k == 1){
+                    int tmp = nums[nums.length - 1];
+                    for(int i = nums.length-2; i>=0; i--){
+                        nums[i + 1] = nums[i];
+                        if(i == 0){
+                            nums[i] = tmp;
+                        }
                     }
+                }else{
+                    rotateInPlace(nums,1);
+                    rotateInPlace(nums, k-1);
                 }
-            }
-            for(int i = 0; i < k; i++){
-                rotateInPlace(nums, 1);
             }
         }
     }
