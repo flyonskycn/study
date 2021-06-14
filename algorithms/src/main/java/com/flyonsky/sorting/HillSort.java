@@ -31,9 +31,9 @@ public class HillSort {
         }
 
         while (hill >= 1){
-            for(int i = hill; i<nums.length; i++){
-                for(int j=i; j >= hill; j-=hill){
-                    if(nums[j] < nums[j-hill]){
+            for(int i = hill; i < nums.length; i++){
+                for(int j = i; j >= hill; j -= hill){
+                    if(nums[j] < nums[j - hill]){
                         swap = nums[j];
                         nums[j] = nums[j - hill];
                         nums[j - hill] = swap;
