@@ -1,6 +1,8 @@
 package com.flyonsky.guava;
 
 import com.flyonsky.JsonBaseTest;
+import com.google.common.base.CaseFormat;
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Strings;
 import org.junit.Assert;
 import org.junit.Test;
@@ -40,5 +42,10 @@ public class StringsTest extends JsonBaseTest {
     @Test
     public void testPadEnd(){
         printString(Strings.padEnd("abc",10,'f'));
+    }
+
+    @Test
+    public void test1(){
+        printString(CaseFormat.UPPER_CAMEL.to(CaseFormat.UPPER_CAMEL,"ＫＹ２１２２１１"));
     }
 }
