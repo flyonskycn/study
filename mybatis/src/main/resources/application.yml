@@ -42,6 +42,7 @@ management:
           - metrics
           - logfile
           - env
+          - info
   endpoint:
     health:
       show-details: always
