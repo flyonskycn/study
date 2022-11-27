@@ -29,7 +29,7 @@
 	  <configuration.version>1.10</configuration.version>
 	  <mysql.version>8.0.16</mysql.version>
 	  <rxjava.version>3.0.2</rxjava.version>
-	  <drools.version>7.40.0.Final</drools.version>
+	  <drools.version>7.60.0.Final</drools.version>
 	  <micrometer.version>1.8.12</micrometer.version>
   </properties>
 
