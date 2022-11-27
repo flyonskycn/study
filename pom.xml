@@ -30,6 +30,7 @@
 	  <mysql.version>8.0.16</mysql.version>
 	  <rxjava.version>3.0.2</rxjava.version>
 	  <drools.version>7.40.0.Final</drools.version>
+	  <micrometer.version>1.8.12</micrometer.version>
   </properties>
 
   <dependencyManagement>
@@ -152,6 +153,11 @@
 		  	<artifactId>drools-templates</artifactId>
 		  	<version>${drools.version}</version>
 	  	</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+			<version>${micrometer.version}</version>
+		</dependency>
   	</dependencies>
   </dependencyManagement>
 	<build>

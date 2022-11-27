@@ -26,3 +26,22 @@ logging:
       mybatis: ERROR
       springframework: DEBUG
   file: /app/logs/${spring.application.name}.log
+
+server:
+  servlet:
+    context-path: /
+  port: 8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
+          - threaddump
+          - metrics
+          - logfile
+          - env
+  endpoint:
+    health:
+      show-details: always
